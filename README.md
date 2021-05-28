@@ -7,6 +7,13 @@ Generic:
 * python-argparse (for Python =2.6)
 
 
+Fedora 34
+```
+wget https://kojipkgs.fedoraproject.org//packages/python2-pip/19.1.1/9.fc32/noarch/python2-pip-19.1.1-9.fc32.noarch.rpm
+yum install pyth*fc32*
+python2 -m pip install twisted
+python2 run_p2pool.py
+```
 
 Linux:
 * sudo apt-get install python-zope.interface python-twisted python-twisted-web
