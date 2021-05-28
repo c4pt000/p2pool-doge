@@ -232,7 +232,7 @@ nets = dict(
     radiocoin=math.Object(
         P2P_PREFIX='c0c0c0c0'.decode('hex'),
         P2P_PORT=9333,
-        ADDRESS_VERSION=30,
+        ADDRESS_VERSION=60,
         RPC_PORT=9332,
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
             'radiocoinaddress' in (yield bitcoind.rpc_help()) and
