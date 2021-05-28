@@ -13,6 +13,20 @@ wget https://kojipkgs.fedoraproject.org//packages/python2-pip/19.1.1/9.fc32/noar
 yum install pyth*fc32*
 python2 -m pip install twisted
 python2 run_p2pool.py
+
+/root/.radiocoin/radiocoin.conf
+server=1
+rpcuser=radio
+rpcpassword=7839b575SET-YOUR-RPCPASSWD
+rpcport=9332
+port=9333
+daemon=1
+upnp=1
+listen=1
+```
+```
+ python2 run_p2pool.py --net radiocoin --bitcoind-rpc-port 9332
+
 ```
 
 Linux:
