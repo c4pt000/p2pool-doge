@@ -231,9 +231,9 @@ nets = dict(
     ),
     radiocoin=math.Object(
         P2P_PREFIX='c0c0c0c0'.decode('hex'),
-        P2P_PORT=22556,
+        P2P_PORT=9333,
         ADDRESS_VERSION=30,
-        RPC_PORT=22555,
+        RPC_PORT=9332,
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
             'radiocoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
