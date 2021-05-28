@@ -25,6 +25,8 @@ upnp=1
 listen=1
 ```
 ```
+        WORKER_PORT=9335,
+
  python2 run_p2pool.py --net radiocoin --bitcoind-rpc-port 9332
 
 ```
