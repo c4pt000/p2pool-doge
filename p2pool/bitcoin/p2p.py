@@ -14,7 +14,7 @@ from p2pool.util import deferral, p2protocol, pack, variable
 
 class Protocol(p2protocol.Protocol):
     def __init__(self, net):
-        p2protocol.Protocol.__init__(self, net.P2P_PREFIX, 1000000, ignore_trailing_payload=True)
+        p2protocol.Protocol.__init__(self, net.P2P_PREFIX, 32000000, ignore_trailing_payload=True)
     
     def connectionMade(self):
         self.send_version(
@@ -146,6 +146,16 @@ class Protocol(p2protocol.Protocol):
     ])
     def handle_alert(self, message, signature):
         pass # print 'ALERT:', (message, signature)
+
+    message_reject = pack.ComposedType([
+        ('message', pack.VarStrType()),
+        ('ccode', pack.IntType(8)),
+        ('reason', pack.VarStrType()),
+        ('data', pack.IntType(256)),
+    ])
+    def handle_reject(self, message, ccode, reason, data):
+        if p2pool.DEBUG:
+            print >>sys.stderr, 'Received reject message (%s): %s' % (message, reason)
     
     def connectionLost(self, reason):
         if hasattr(self.factory, 'gotConnection'):
