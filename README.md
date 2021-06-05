@@ -1,6 +1,6 @@
 Requirements: docker-ce
 
-docker run -it --net host -d c4pt/radiocoin-p2pool-portable
+ docker run -it --net host -d -v /root/.radiocoin:/root/.radiocoin c4pt/radiocoin-p2pool-portable
 
 
 
