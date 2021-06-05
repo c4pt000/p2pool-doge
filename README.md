@@ -7,18 +7,23 @@ docker run -it --net host -d c4pt/radiocoin-p2pool-portable
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 -------------------------
