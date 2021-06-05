@@ -1,4 +1,26 @@
-Requirements:
+Requirements: docker-ce
+
+docker run -it --net host -d c4pt/radiocoin-p2pool-portable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -------------------------
 Generic:
 * Bitcoin >=0.8.5
