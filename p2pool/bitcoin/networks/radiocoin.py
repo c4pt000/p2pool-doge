@@ -6,10 +6,10 @@ from twisted.internet import defer
 from .. import data, helper
 from p2pool.util import pack
 
-
-P2P_PREFIX = 'fbc0b6db'.decode('hex')
+	      
+P2P_PREFIX = 'c0c0c0c0'.decode('hex')
 P2P_PORT = 9333
-ADDRESS_VERSION = 48
+ADDRESS_VERSION = 60
 ADDRESS_P2SH_VERSION = 50
 HUMAN_READABLE_PART = 'radc'
 RPC_PORT = 9332
@@ -24,7 +24,7 @@ BLOCK_PERIOD = 150 # s
 SYMBOL = 'RADC'
 CONF_FILE_FUNC = lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'RadioCoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/RadioCoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.radiocoin'), 'radiocoin.conf')
 BLOCK_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/block-height/?'
-ADDRESS_EXPLORER_URL_PREFIX = ''
+ADDRESS_EXPLORER_URL_PREFIX = 'http://127.0.0.1'
 TX_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/tx/?'
 SANE_TARGET_RANGE = (2**256//1000000000000000 - 1, 2**256//1000 - 1)
 DUMB_SCRYPT_DIFF = 2**16
