@@ -1,4 +1,4 @@
-**P2pool installation with pypy -- Windows**
+ **P2pool installation with pypy -- Windows**
 
 
 On Windows, pypy is only supported via the Windows Subsystem for Linux (WSL). P2pool on pypy on WSL is much faster than P2pool on
