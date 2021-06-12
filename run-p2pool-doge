@@ -1,0 +1,2 @@
+python2 /opt/p2pool/run_p2pool.py --net dogecoin -a DNaTG643LsrPFHHJg8zj6PUWXFxhY5g466 -f 1 --give-author 0 --worker-port 9555 --bitcoind-p2p-port 22555 --bitcoind-rpc-port 22556 rpcuser be3098bcc69d25028a821e229a13953
+

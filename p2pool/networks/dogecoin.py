@@ -1,6 +1,6 @@
 from p2pool.bitcoin import networks
 
-PARENT = networks.nets['radiocoin']
+PARENT = networks.nets['dogecoin']
 SHARE_PERIOD = 15 # seconds
 CHAIN_LENGTH = 24*60*60//10 # shares
 REAL_CHAIN_LENGTH = 24*60*60//10 # shares
@@ -14,14 +14,15 @@ MAX_TARGET = 2**256//2**20 - 1
 PERSIST = True
 WORKER_PORT = 9555
 BOOTSTRAP_ADDRS = [
-	'194.195.117.160',
-	'172.105.77.251',
-	'194.195.250.123',
-	'172.104.167.106',
-	'139.162.80.22'
+'95.85.29.144',
+'162.243.113.110',
+'146.185.181.114',
+'188.165.19.28',
+'166.78.155.36',
+'78.46.57.132'
         ]
 ANNOUNCE_CHANNEL = ''
-VERSION_CHECK = lambda v: None if 1140300 <= v else 'radiocoin version too old. Upgrade to 3.0.0 or newer!'
+VERSION_CHECK = lambda v: None if 1140300 <= v else 'dogecoin version too old. Upgrade to 3.0.0 or newer!'
 VERSION_WARNING = lambda v: None
 SOFTFORKS_REQUIRED = set(['bip65', 'csv' ])
 MINIMUM_PROTOCOL_VERSION = 3301
