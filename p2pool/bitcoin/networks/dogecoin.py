@@ -23,9 +23,9 @@ POW_FUNC = lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoW
 BLOCK_PERIOD = 150 # s
 SYMBOL = 'DOGE'
 CONF_FILE_FUNC = lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'Dogecoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/Dogecoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.dogecoin'), 'dogecoin.conf')
-BLOCK_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/block-height/?'
-ADDRESS_EXPLORER_URL_PREFIX = 'http://127.0.0.1'
-TX_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/tx/?'
+BLOCK_EXPLORER_URL_PREFIX = 'https://live.blockcypher.com/doge/?'
+ADDRESS_EXPLORER_URL_PREFIX = 'https://live.blockcypher.com/doge/address/?'
+TX_EXPLORER_URL_PREFIX = 'https://live.blockcypher.com/doge/tx/200e9a5ca626c2902b30ba0b532d7c34d45967f93d0a9680098553b955e3aa16/tx/?'
 SANE_TARGET_RANGE = (2**256//1000000000000000 - 1, 2**256//1000 - 1)
 DUMB_SCRYPT_DIFF = 2**16
 DUST_THRESHOLD = 0.03e8
