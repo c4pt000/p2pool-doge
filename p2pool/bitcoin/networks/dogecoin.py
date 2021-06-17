@@ -14,7 +14,6 @@ ADDRESS_P2SH_VERSION = 22
 HUMAN_READABLE_PART = 'doge'
 RPC_PORT = 22556
 RPC_CHECK = defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-#            'radiocoin' in (yield bitcoind.rpc_help()) and # new versions have "radiocoinprivkey" but no "radiocoinaddress"
             (yield helper.check_block_header(bitcoind, '1a91e3dace36e2be3bf030a65679fe821aa1d6ef92e7c9902eb318182c355691')) and
                           (yield bitcoind.rpc_getblockchaininfo())['chain'] == 'main'
         ))
