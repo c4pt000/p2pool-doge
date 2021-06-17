@@ -10,13 +10,12 @@ from p2pool.util import pack
 P2P_PREFIX = 'd1d1d1d1'.decode('hex')
 P2P_PORT = 9333
 ADDRESS_VERSION = 60
-ADDRESS_P2SH_VERSION = 50
+ADDRESS_P2SH_VERSION = 22
 HUMAN_READABLE_PART = 'radc'
 RPC_PORT = 9332
 RPC_CHECK = defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-#            'radiocoin' in (yield bitcoind.rpc_help()) and # new versions have "radiocoinprivkey" but no "radiocoinaddress"
-            (yield helper.check_block_header(bitcoind, '000008f3108b9b62492a71ff55f58f90678baf0ddeb75d11480f9355df6d1204')) and
-                          (yield bitcoind.rpc_getblockchaininfo())['chain'] == 'main'
+	    (yield helper.check_block_header(bitcoind, '000006ac2bd84266d6064bc8c47a222b9c68eb25c70aa6f13320fc7ed7f9e996')) and # genesis block
+            (yield bitcoind.rpc_getblockchaininfo())['chain'] == 'main'
         ))
 SUBSIDY_FUNC = lambda height: 50*100000000 >> (height + 1)//840000
 POW_FUNC = lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data))
