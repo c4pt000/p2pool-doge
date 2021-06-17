@@ -1,11 +1,11 @@
 from p2pool.bitcoin import networks
 
 PARENT = networks.nets['radiocoin']
-SHARE_PERIOD = 15 # seconds
+SHARE_PERIOD = 90 # seconds
 CHAIN_LENGTH = 24*60*60//10 # shares
 REAL_CHAIN_LENGTH = 24*60*60//10 # shares
 TARGET_LOOKBEHIND = 200 # shares
-SPREAD = 3 # blocks
+SPREAD = 30 # blocks
 IDENTIFIER = 'e037d5b8c6923410'.decode('hex')
 PREFIX = '7208c1a53ef629b0'.decode('hex')
 P2P_PORT = 9334
