@@ -23,7 +23,7 @@ BOOTSTRAP_ADDRS = [
 ANNOUNCE_CHANNEL = ''
 VERSION_CHECK = lambda v: None if 1140300 <= v else 'radiocoin version too old. Upgrade to 3.0.0 or newer!'
 VERSION_WARNING = lambda v: None
-SOFTFORKS_REQUIRED = set(['bip65', 'csv', 'segwit' ])
+SOFTFORKS_REQUIRED = set(['bip65', 'csv' ])
 MINIMUM_PROTOCOL_VERSION = 3301
 SEGWIT_ACTIVATION_VERSION = 17
 BLOCK_MAX_SIZE = 1000000
