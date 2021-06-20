@@ -9,7 +9,7 @@ SPREAD = 10 # blocks
 IDENTIFIER = 'e037d5b8c6923410'.decode('hex')
 PREFIX = '7208c1a53ef629b0'.decode('hex')
 P2P_PORT = 9334
-MIN_TARGET = 0
+MIN_TARGET = 2**256//50 - 1
 MAX_TARGET = 2**256//2**20 - 1
 PERSIST = False
 WORKER_PORT = 9555
@@ -21,10 +21,10 @@ BOOTSTRAP_ADDRS = [
 	'139.162.80.22'
         ]
 ANNOUNCE_CHANNEL = ''
-VERSION_CHECK = lambda v: None if 1140300 <= v else 'radiocoin version too old. Upgrade to 3.0.0 or newer!'
+VERSION_CHECK = lambda v: None if 1140300 <= v else 'radiocoin version too old. Upgrade to 5.0.2 or newer!'
 VERSION_WARNING = lambda v: None
-SOFTFORKS_REQUIRED = set(['bip65', 'csv' ])
-MINIMUM_PROTOCOL_VERSION = 3301
-SEGWIT_ACTIVATION_VERSION = 17
+SOFTFORKS_REQUIRED = set(['bip65','bip34' ])
+MINIMUM_PROTOCOL_VERSION = 70015
+SEGWIT_ACTIVATION_VERSION = 0
 BLOCK_MAX_SIZE = 1000000
 BLOCK_MAX_WEIGHT = 4000000

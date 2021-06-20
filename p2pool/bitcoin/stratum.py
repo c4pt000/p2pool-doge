@@ -13,7 +13,8 @@ def clip(num, bot, top):
 
 class StratumRPCMiningProvider(object):
     def __init__(self, wb, other, transport):
-        self.pool_version_mask = 0x1fffe000
+        self.pool_version_mask = 0x1e0ffff0
+#0x1fffe000
         self.wb = wb
         self.other = other
         self.transport = transport

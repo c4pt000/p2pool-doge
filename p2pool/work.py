@@ -421,7 +421,9 @@ class WorkerBridge(worker_interface.WorkerBridge):
         self.last_work_shares.value[address] = share_info['bits']
         
         ba = dict(
-            version=max(self.current_work.value['version'], 0x20000000),
+            version=self.current_work.value['version'],
+        
+#    version=max(self.current_work.value['version'], 0x20000000),
             previous_block=self.current_work.value['previous_block'],
             merkle_link=merkle_link,
             coinb1=packed_gentx[:-self.COINBASE_NONCE_LENGTH-4],

@@ -78,7 +78,7 @@ class BaseShare(object):
     VERSION = 0
     VOTING_VERSION = 0
     SUCCESSOR = None
-    MINIMUM_PROTOCOL_VERSION = 1400
+    MINIMUM_PROTOCOL_VERSION = 70015
     
     small_block_header_type = pack.ComposedType([
         ('version', pack.VarIntType()),
