@@ -1,51 +1,36 @@
 p2pool-node-status
 ==================
 
+A clean p2pool node dashboard. It provides:
+
+* Audio and text notifications for new shares and blocks (on most modern browsers)
+* Automatic conversion of BTC to USD
+* Integration with [Blockchain.info](https://blockchain.info/) APIs
+* Detailed information about each share, block and transaction
+* All the graphs you know and love
+
+### Screenshot
+
+![Screenshot](img/screenshot.png)
+
+## Note
+
+This dashboard requires the use of a custom p2pool fork (https://github.com/jramos/p2pool). The fork adds additional web interfaces for retrieving block and transaction information.
 
 ## Installation
 
-### Parallel to the default web-static
-
-To run this UI in parallel to your current p2pool web interface, do in your web-static directory:
+Do this in the top directory of your p2pool installation:
 
 ``` Bash
-git clone https://github.com/farsider350/node-stats-btc.git
+git submodule init
+git submodule update
 ```
 
-You can then access the UI per `http://<url-to-your-p2pool>:<port>/static/node-stats/`
-
-### As web-static replacement
-
-To replace your current web-static, do in the top directory of your p2pool installation
-
-``` Bash
-mv web-static _web-static-pre
-git clone https://github.com/farsider350/node-stats-btc.git web-static
-```
-
-and access as usually per `http://<url-to-your-p2pool>:<port>/static`
-
-### On a different host
-
-This UI can be run on a different web server as well.  The web server must than provide at least PHP in order to execute the JSONP handler.
-
-You need to configure the host and port of your p2pool server in the config.json like
-
-``` JavaScript
-var config = {
-  myself : [],
-  host : "http://p2pool.org:9332",
-  reload_interval : 30,
-  reload_chart_interval : 600,
-  use_fontawesome : true
-}
-```
-
-**Beware**:  The UI queries the p2pool API periodically.  This will put additional network traffic on your p2pool server.  It can, but must not, result in a higher variance!
+and access via `http://<url-to-your-p2pool>:<port>/static`. The default port is ``9332``.
 
 ## Configuration
 
-The `config.json` is found in `js` directory.
+The `config.json` is found in the `js` directory.
 
 ### Highlight your own miner address
 
@@ -54,42 +39,52 @@ If you want your miner address highlighted, adjust `myself` variable accordingly
 ``` JavaScript
 var config = {
   myself : [
-    "12nQSWig35Wue2AGjiGM5F2LUvSwq8uQqS",
-    "1MsuC6knLeZKHCyQ39Xcw1qcgScS1ZK5R"
+    "1Fi7YbpTYjHynUqbh1vwPcAqAqwQzeC1gw"
   ],
-  host : "",
-  reload_interval : 30,
+  node_name : '',
+  reload_interval : 60,
   reload_chart_interval : 600,
-  use_fontawesome : true
+  convert_bitcoin_to_usd: true,
+  enable_audio : true,
+  header_url : '',
+  footer_url : '',
+  ad_url     : ''
 }
 ```
 
-### Point the UI to a different p2pool server
+### Customize the node name
 
-
-You need to configure the host and port of your p2pool server in the `host` variable like
+By default. no node name is displayed. To customize, set `node_name` equal to the value you want to display. Note that this does not affect the host setting in any way.
 
 ``` JavaScript
 var config = {
   myself : [],
-  host : "http://p2pool.org:9332",
-  reload_interval : 30,
+  node_name : 'bitcoin.ramosresearch.com:9332',
+  reload_interval : 60,
   reload_chart_interval : 600,
-  use_fontawesome : true
+  convert_bitcoin_to_usd: true,
+  enable_audio : true,
+  header_url : '',
+  footer_url : '',
+  ad_url     : ''
 }
 ```
 
-### Adjust the reload interval
+### Adjust the reload intervals
 
-Per default the UI updates the miner list and server stats every 30 seconds.  You can adjust the `reload_interval` variable like
+By default the UI updates the miner list and server stats every 60 seconds.  You can adjust the `reload_interval` variable like this...
 
 ``` JavaScript
 var config = {
   myself : [],
-  host : "",
+  node_name : '',
   reload_interval : 20,
   reload_chart_interval : 1200,
-  use_fontawesome : true
+  convert_bitcoin_to_usd: true,
+  enable_audio : true,
+  header_url : '',
+  footer_url : '',
+  ad_url     : ''
 }
 ```
 
@@ -97,34 +92,69 @@ to set it to 20 seconds for example.
 
 `reload_chart_interval` sets the amount of seconds until the hashrate graph is reloaded.  In above example, it's configured to 1200 seconds (20 minutes).
 
-**Beware** that each API query puts network and CPU load on your p2pool installation.  Avoid decreasing this value too much.  In my tests, 20 to 30 seconds seem to be fair enough.
+**Beware** that each API query puts network and CPU load on your p2pool installation.  Avoid decreasing this value too much.
 
-### Disable Fontawesome Bitcoin icon
+### Bitcoin currency conversion
 
-On Bitcoin p2pools, this UI uses the Fontawesome Bitcoin icon per default.  This can be disabled per `use_fontawesome` configuration option.  Set it to false if don't want to use the bitcoin icon.
+By default, Bitcoin values are automatically converted to US dollars. This is accomplished by using real-time data from [Blockchain.info](https://blockchain.info/). To disable this feature, set the value of `convert_bitcoin_to_usd` to `false`.
 
 ``` JavaScript
 var config = {
   myself : [],
-  host : "",
-  reload_interval : 30,
+  node_name : '',
+  reload_interval : 60,
   reload_chart_interval : 600,
-  use_fontawesome : false
+  convert_bitcoin_to_usd: false,
+  enable_audio : false,
+  header_url : '',
+  footer_url : '',
+  ad_url     : ''
 }
 ```
 
-If this variable is set to `false`, the UI displays the p2pool currency symbol (BTC).
+### Disable audio notifications
 
-*This does only apply to Bitcoin pools.  On other cryptocurrencies, the UI displays whatever p2pool API replies as currency symbol.*
+By default, audio is played when new shares or blocks are discovered. This can be disabled via the `enable_audio` configuration option. Set it to false if you don't want to hear audio notifications.
 
-### Donate
+``` JavaScript
+var config = {
+  myself : [],
+  node_name : '',
+  reload_interval : 60,
+  reload_chart_interval : 600,
+  convert_bitcoin_to_usd: true,
+  enable_audio : false,
+  header_url : '',
+  footer_url : '',
+  ad_url     : ''
+}
+```
 
-If you like this tool, find it useful or if you just find it useful, that people out there writing free software for everybody to use or contribute, please donate some coins:
+### Display a header, footer and ads
 
-Bitcoins 12nQSWig35Wue2AGjiGM5F2LUvSwq8uQqS  
+Add HTML to the files references by `header_url`, `footer_url` and `ad_url` to display HTML snippets at the top, bottom and top-right of each page. Leave blank to disable.
 
+``` JavaScript
+var config = {
+  myself : [],
+  node_name : '',
+  reload_interval : 60,
+  reload_chart_interval : 600,
+  convert_bitcoin_to_usd: true,
+  enable_audio : true,
+  header_url : 'header.html',
+  footer_url : 'footer.html',
+  ad_url     : 'ad.html'
+}
+```
 
---------------------------
+## Donate
 
-:wq!
+If you find this dashboard useful, please consider donating some bitcoins:
 
+* Alexander Zschach, `1MzFr1eKzLEC1tuoZ7URMB7WWBMgHKimKe`
+* Justin Ramos, `18HFFqZv2KJMHPNwPes839PJd5GZc4cT3U`
+
+## License
+
+Code released under [the MIT license](LICENSE.txt).
