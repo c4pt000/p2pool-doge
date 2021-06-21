@@ -1,5 +1,0 @@
-#!/bin/bash
-#docker run --net host -it c4pt/radiopool-current /usr/bin/run-p2pool
-
-python2 /opt/p2pool/run_p2pool.py --net radiocoin -a RBARRP64VQhMpozPaNFXRSzCgn9FtvDuFM -f 1 --give-author 0  --worker-port 9555 --bitcoind-p2p-port 9333 --bitcoind-rpc-port 9332 rpcuser be3098bcc69d25028a821e229a13953 &
-

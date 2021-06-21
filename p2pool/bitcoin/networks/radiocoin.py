@@ -14,7 +14,7 @@ ADDRESS_P2SH_VERSION = 22
 HUMAN_READABLE_PART = 'radc'
 RPC_PORT = 9332
 RPC_CHECK = defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-	    (yield helper.check_block_header(bitcoind, '000006ac2bd84266d6064bc8c47a222b9c68eb25c70aa6f13320fc7ed7f9e996')) and # genesis block
+	    (yield helper.check_block_header(bitcoind, '000007ce46e6c59844c34fa7ba5b27c8dac0653a27fcfb7340cc0158849e4afd')) and # genesis block
             (yield bitcoind.rpc_getblockchaininfo())['chain'] == 'main'
         ))		         
 #SUBSIDY_FUNC = lambda height: 50*100000000 >> (height + 1)//100000
@@ -26,8 +26,8 @@ CONF_FILE_FUNC = lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'Radio
 BLOCK_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/block/'
 ADDRESS_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/block/'
 TX_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/tx/'
-SANE_TARGET_RANGE = (2**256//1000000000000000 - 1, 2**256//1000 - 1)
-#SANE_TARGET_RANGE = (2**256//1000000000 - 1, 2**256//500000 - 1)
+#SANE_TARGET_RANGE = (2**256//1000000000000000 - 1, 2**256//1000 - 1)
+SANE_TARGET_RANGE = (2**256//1000000000 - 1, 2**256//500000 - 1)
 
 
 

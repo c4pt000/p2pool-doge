@@ -1,45 +1,4 @@
-
-requires docker for portable docker image port 9555 should be open on LAN side or WAN side depending on network config of firewall
-
-added fix-p2pool generates a new p2pool docker image site wallet for local use
-review /usr/bin/fix-p2pool if this copy isnt temporary (since wallet.dat will be removed even through a docker commit)
-
-commit changes on any edits
-docker commit <docker_running_vm_hash>
-
-to edit radiocoin.conf /usr/bin/run-p2pool
-```
-docker run --net host -it  c4pt/radiopool-current bash
-```
-run directly
-```
-docker run --net host -it  c4pt/radiopool-current fix-p2pool
-
-```
-http://172.17.0.1:9555/static/
-
-
-replace your-radiocoin-receiving-addr with your actual radiocoin wallet receiving address 
- ```
- cpu mining
-
-
-for local p2pool mining
-
-docker run -it c4pt/cpuminer-opt cpuminer -a scrypt --url stratum+tcp://172.17.0.1:9555 --userpass your-radiocoin-receiving-addr:x -t 24 --param-n --param-r --no-longpoll --coinbase-addr=your-radiocoin-receiving-addr --no-extranonce --no-getwork --no-gbt --no-stratum -q
-
-
-set to -I 20 for stronger intensity...be warned
-docker run -it --privileged c4pt/cudaminer-nvidia-docker cgminer --scrypt -I 13 -o stratum+tcp://172.17.0.1:9555 --userpass your-radiocoin-receiving-addr:x --worksize 256 -g 1 --lookup-gap 2 --thread-concurrency 7200 --fix-protocol
-```
- 
- 
- 
- a GPU cluster script to reference
-```
-wget https://raw.githubusercontent.com/c4pt000/radiocoin/master/LINODE-GPU-CLUSTER-script-FEDORA-34
-```
- **P2pool installation with pypy -- Windows**
+**P2pool installation with pypy -- Windows**
 
 
 On Windows, pypy is only supported via the Windows Subsystem for Linux (WSL). P2pool on pypy on WSL is much faster than P2pool on

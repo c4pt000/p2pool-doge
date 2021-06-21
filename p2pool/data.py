@@ -878,7 +878,7 @@ class OkayTracker(forest.Tracker):
         return self.net.CHAIN_LENGTH, self.verified.get_delta(share_hash, end_point).work/((0 - block_height + 1)*self.net.PARENT.BLOCK_PERIOD)
 
 def update_min_protocol_version(counts, share):
-    minpver = getattr(share.net, 'MINIMUM_PROTOCOL_VERSION', 1400)
+    minpver = getattr(share.net, 'MINIMUM_PROTOCOL_VERSION', 70015)
     newminpver = share.MINIMUM_PROTOCOL_VERSION
     if (counts is not None) and (minpver < newminpver):
             if counts.get(share.VERSION, 0) >= sum(counts.itervalues())*95//100:
