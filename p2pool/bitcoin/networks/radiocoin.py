@@ -27,7 +27,8 @@ BLOCK_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/block/'
 ADDRESS_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/block/'
 TX_EXPLORER_URL_PREFIX = 'http://radioblockchain.info/tx/'
 #SANE_TARGET_RANGE = (2**256//1000000000000000 - 1, 2**256//1000 - 1)
-SANE_TARGET_RANGE = (2**256//1000000000 - 1, 2**256//500000 - 1)
+#SANE_TARGET_RANGE = (2**256//100000000 - 1, 2**256//500000 - 1)
+SANE_TARGET_RANGE = (2**256//10000000000 - 1, 2**256//1000000 - 1)
 
 
 
