@@ -10,7 +10,7 @@ browser for frontend
 http://127.0.0.1:9555/static/
 
 
-docker run -it c4pt/cpuminer-opt cpuminer -a scrypt --url stratum+tcp://172.17.0.1:9555 --userpass RRmhgtxJ9ipUVkF7acLfpaurwGS2rcbwvL:x -t 24 --param-n --param-r --no-longpoll --coinbase-addr=RRmhgtxJ9ipUVkF7acLfpaurwGS2rcbwvL --no-extranonce --no-getwork --no-gbt --no-stratum -q
+docker run -it c4pt/cpuminer-opt cpuminer -a scrypt --url stratum+tcp://172.17.0.1:9555 --userpass YOUR-WALLET-ADRESS-here:x -t 24 --param-n --param-r --no-longpoll --coinbase-addr=YOUR-WALLET-ADRESS-here --no-extranonce --no-getwork --no-gbt --no-stratum -q
 ```
 
 
