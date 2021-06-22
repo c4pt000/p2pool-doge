@@ -16,10 +16,11 @@ docker run -it c4pt/cpuminer-opt cpuminer -a scrypt --url stratum+tcp://172.17.0
 
 running local
 ```
+wget https://github.com/c4pt000/docker-p2pool-radiocoin-and-dogecoin/releases/download/python2-pip-fedora-34/python2-pip-9.0.3-18.module_el8.4.0+642+1dc4fb01.noarch.rpm
+
 rpm -Uvh --force python2-pip-9.0.3-18.module_el8.4.0+642+1dc4fb01.noarch.rpm 
 
 python2 -m pip install twisted
-
 python2 -m pip install wheel
 python2 -m pip install zope
 radiocoin-cli getnewaddress
