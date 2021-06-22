@@ -2,7 +2,7 @@
 ```
 docker run -it --net host c4pt/radiopool-current bash
 
-ifconfig 172.17.0.1
+ifconfig docker0
 
 fix-p2pool
 
