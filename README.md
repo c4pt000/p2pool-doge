@@ -1,4 +1,22 @@
+
+```
+docker run -it --net host c4pt/radiopool-current bash
+
+ifconfig 172.17.0.1
+
+fix-p2pool
+
+browser for frontend
+http://127.0.0.1:9555/static/
+
+
+docker run -it c4pt/cpuminer-opt cpuminer -a scrypt --url stratum+tcp://172.17.0.1:9555 --userpass RRmhgtxJ9ipUVkF7acLfpaurwGS2rcbwvL:x -t 24 --param-n --param-r --no-longpoll --coinbase-addr=RRmhgtxJ9ipUVkF7acLfpaurwGS2rcbwvL --no-extranonce --no-getwork --no-gbt --no-stratum -q
+```
+
+
 **P2pool installation with pypy -- Windows**
+
+
 
 
 On Windows, pypy is only supported via the Windows Subsystem for Linux (WSL). P2pool on pypy on WSL is much faster than P2pool on
