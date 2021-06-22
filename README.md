@@ -14,6 +14,19 @@ docker run -it c4pt/cpuminer-opt cpuminer -a scrypt --url stratum+tcp://172.17.0
 ```
 
 
+running local
+```
+rpm -Uvh --force python2-pip-9.0.3-18.module_el8.4.0+642+1dc4fb01.noarch.rpm 
+
+python2 -m pip install twisted
+
+python2 -m pip install wheel
+python2 -m pip install zope
+radiocoin-cli getnewaddress
+
+python2 run_p2pool.py --allow-obsolete-bitcoind --net radiocoin -a YOUR-RECEIVING_ADDR -f 1 --give-author 0 --worker-port 9555 --bitcoind-p2p-port 9333 --bitcoind-rpc-port 9332 YOURrpcuser YOURrpcpassword
+ ```
+
 **P2pool installation with pypy -- Windows**
 
 
