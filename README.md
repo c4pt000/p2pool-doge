@@ -1,4 +1,36 @@
+
+```
+docker run -it --net host c4pt/radiopool-current bash
+
+ifconfig docker0
+
+fix-p2pool
+
+browser for frontend
+http://127.0.0.1:9555/static/
+
+
+docker run -it c4pt/cpuminer-opt cpuminer -a scrypt --url stratum+tcp://172.17.0.1:9555 --userpass YOUR-WALLET-ADRESS-here:x -t 24 --param-n --param-r --no-longpoll --coinbase-addr=YOUR-WALLET-ADRESS-here --no-extranonce --no-getwork --no-gbt --no-stratum -q
+```
+
+
+running local
+```
+wget https://github.com/c4pt000/docker-p2pool-radiocoin-and-dogecoin/releases/download/python2-pip-fedora-34/python2-pip-9.0.3-18.module_el8.4.0+642+1dc4fb01.noarch.rpm
+
+rpm -Uvh --force python2-pip-9.0.3-18.module_el8.4.0+642+1dc4fb01.noarch.rpm 
+
+python2 -m pip install twisted
+python2 -m pip install wheel
+python2 -m pip install zope
+radiocoin-cli getnewaddress
+
+python2 run_p2pool.py --allow-obsolete-bitcoind --net radiocoin -a YOUR-RECEIVING_ADDR -f 1 --give-author 0 --worker-port 9555 --bitcoind-p2p-port 9333 --bitcoind-rpc-port 9332 YOURrpcuser YOURrpcpassword
+ ```
+
 **P2pool installation with pypy -- Windows**
+
+
 
 
 On Windows, pypy is only supported via the Windows Subsystem for Linux (WSL). P2pool on pypy on WSL is much faster than P2pool on
